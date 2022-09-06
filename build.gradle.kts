@@ -2,7 +2,7 @@ import io.gitlab.arturbosch.detekt.Detekt
 
 plugins {
     jacoco
-    kotlin("jvm") version "1.7.10"
+    kotlin("jvm") version "1.5.10"
     id("io.gitlab.arturbosch.detekt") version "1.18.0"
     id("org.jmailen.kotlinter") version "3.6.0"
 }
@@ -48,7 +48,6 @@ tasks {
         kotlinOptions {
             jvmTarget = "11"
         }
-        dependsOn(detekt)
     }
     compileTestKotlin {
         kotlinOptions {
