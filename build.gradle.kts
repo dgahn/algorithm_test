@@ -2,9 +2,9 @@ import io.gitlab.arturbosch.detekt.Detekt
 
 plugins {
     jacoco
-    kotlin("jvm") version "1.5.10"
-    id("io.gitlab.arturbosch.detekt") version "1.18.0"
-    id("org.jmailen.kotlinter") version "3.6.0"
+    kotlin("jvm") version "2.2.0"
+    id("io.gitlab.arturbosch.detekt") version "1.23.8"
+    id("org.jmailen.kotlinter") version "5.2.0"
 }
 
 group = "me.dgahn"
@@ -12,14 +12,6 @@ version = "0.1.0"
 
 repositories {
     mavenCentral()
-}
-
-kotlinter {
-    ignoreFailures = false
-    indentSize = 4
-    reporters = arrayOf("checkstyle", "plain")
-    experimentalRules = false
-    disabledRules = emptyArray()
 }
 
 dependencies {
@@ -43,19 +35,6 @@ tasks {
     java {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
-    }
-    compileKotlin {
-        kotlinOptions {
-            jvmTarget = "11"
-        }
-    }
-    compileTestKotlin {
-        kotlinOptions {
-            jvmTarget = "11"
-        }
-    }
-    withType<Detekt> {
-        dependsOn(formatKotlin)
     }
     jacocoTestReport {
         reports {
